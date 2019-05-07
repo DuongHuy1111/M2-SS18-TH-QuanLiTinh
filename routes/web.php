@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix' => 'cities'], function (){
+Route::group(['prefix' => 'cities'], function () {
     Route::get('/', 'CityController@index')->name('cities.index');
     Route::get('/create', 'CityController@create')->name('cities.create');
     Route::post('/create', 'CityController@store')->name('cities.store');
@@ -23,7 +23,7 @@ Route::group(['prefix' => 'cities'], function (){
     Route::get('/{id}/delete', 'CityController@destroy')->name('cities.destroy');
 });
 
-Route::group(['prefix' => 'customers'], function (){
+Route::group(['prefix' => 'customers'], function () {
     Route::get('/', 'CustomerController@index')->name('customers.index');
     Route::get('/create', 'CustomerController@create')->name('customers.create');
     Route::post('/create', 'CustomerController@store')->name('customers.store');
@@ -31,4 +31,5 @@ Route::group(['prefix' => 'customers'], function (){
     Route::post('{id}/edit', 'CustomerController@update')->name('customers.update');
     Route::get('{id}/delete', 'CustomerController@destroy')->name('customers.destroy');
     Route::get('/filter', 'CustomerController@filterByCity')->name('customers.filterByCity');
+    Route::get('/search', 'CustomerController@search')->name('customers.search');
 });
